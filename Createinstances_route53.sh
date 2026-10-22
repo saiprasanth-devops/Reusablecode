@@ -55,7 +55,6 @@ instanceid_derive(){
 
 
 updatesecuritygroup(){
-
 securitygroup=$1
  instanceid=$(aws ec2 run-instances \
     --image-id "$image_id" \
@@ -71,4 +70,53 @@ do
 echo "$instancename"
 instanceid=$(instanceid_derive "$instancename")
 echo "$instanceid"
+if [ "${instancename}" == "frontend" ] || [ "$instancename" = "FRONTEND" ];
+then 
+publicipaddress=$(publicip "$instanceid")
+route53_frontend="$record_name"
+echo ""$route53_frontend""
+update_route53 "$route53_frontend" "$publicipaddress"
+else
+privateipaddress=$(privateip "$instanceid")
+route53_all="$instanceid"."$record_name"
+update_route53 "$route53_all" "$privateipaddress"
+fi
 done
+
+privateip(){
+   instanceid=$1
+privateip=$(aws ec2 describe-instances \
+    --instance-ids "$instanceid" \
+    --query "Reservations[*].Instances[*].PrivateIpAddress" \
+    --output text })
+
+}
+
+publicip(){
+ instanceid=$1
+publicip=$(aws ec2 describe-instances \
+    --instance-ids "$instanceid" \
+    --query "Reservations[*].Instances[*].PublicIpAddress" \
+    --output text })
+
+
+}
+update_route53(){
+
+   ipvalue=$1
+   route53=$2
+   aws route53 change-resource-record-sets \
+    --hosted-zone-id "${hosted_zone_id}" \
+    --change-batch '{
+      "Changes": [{
+        "Action": "UPSERT",
+        "ResourceRecordSet": {
+          "Name": ""${route53}"",
+          "Type": "A",
+          "TTL": 1,
+          "ResourceRecords": [{"Value": ""${ipvalue}""}]
+        }
+      }]
+    }'
+
+}
