@@ -18,39 +18,45 @@ instanceid_derive(){
     #updatesecuritygroup "$catalogue_securitygroups"
   elif [[ "$instancename" == *"mongodb"* ]];
  then 
-  updatesecuritygroup "$mongodb_securitygroups"
-  elif [[ "$instancename" == *"catalogue"* ]];
+ instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+   echo "$instanceid"
+     elif [[ "$instancename" == *"catalogue"* ]];
  then 
-  updatesecuritygroup "$catalogue_securitygroups"
- elif [[ "$instancename" == *"rabbitmq"* ]];
+ instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+   echo "$instanceid"
+    elif [[ "$instancename" == *"rabbitmq"* ]];
  then 
-  updatesecuritygroup "$rabbitmq_securitygroups"
-  elif [[ "$instancename" == *"dispatch"* ]];
+ instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+   echo "$instanceid"
+     elif [[ "$instancename" == *"dispatch"* ]];
  then 
-  updatesecuritygroup "$dispatch_securitygroups"
- elif [[ "$instancename" == *"shipping"* ]];
+ instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+   echo "$instanceid"
+    elif [[ "$instancename" == *"shipping"* ]];
  then 
-  updatesecuritygroup "$shipping_securitygroups"
-  elif [[ "$instancename" == *"user"* ]];
+ instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+   echo "$instanceid"
+     elif [[ "$instancename" == *"user"* ]];
  then 
-  updatesecuritygroup "$user_securitygroups"
-
+ instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+   echo "$instanceid"
     elif [[ "$instancename" == *"redis"* ]];
  then 
-  updatesecuritygroup "$redis_securitygroups"
-
+ instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+   echo "$instanceid"
     elif [[ "$instancename" == *"cart"* ]];
  then 
-  updatesecuritygroup "$cart_securitygroups"
-
+ instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+   echo "$instanceid"
     elif [[ "$instancename" == *"frontend"* ]];
  then 
-  updatesecuritygroup "$frontend_securitygroups"
-
+ instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+   echo "$instanceid"
     elif [[ "$instancename" == *"payment"* ]];
  then 
-  updatesecuritygroup "$payment_securitygroups"
-  else 
+ instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+   echo "$instanceid" 
+    else 
   echo "data is not found"
   exit 1
   fi
