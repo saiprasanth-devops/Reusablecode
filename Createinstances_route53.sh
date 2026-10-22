@@ -11,41 +11,41 @@ source ./Securitygroups_Allservices.sh
 
 instanceid_derive(){
     instancename=$1
- if [[ "$instance" == *"mysql"* ]];
+ if [[ "$instancename" == *"mysql"* ]];
  then 
   updatesecuritygroup "$mysql_securitygroups"
-  elif [[ "$instance" == *"mongodb"* ]];
+  elif [[ "$instancename" == *"mongodb"* ]];
  then 
   updatesecuritygroup "$mongodb_securitygroups"
-  elif [[ "$instance" == *"catalogue"* ]];
+  elif [[ "$instancename" == *"catalogue"* ]];
  then 
   updatesecuritygroup "$catalogue_securitygroups"
- elif [[ "$instance" == *"rabbitmq"* ]];
+ elif [[ "$insinstancenametance" == *"rabbitmq"* ]];
  then 
   updatesecuritygroup "$rabbitmq_securitygroups"
-  elif [[ "$instance" == *"dispatch"* ]];
+  elif [[ "$instancename" == *"dispatch"* ]];
  then 
   updatesecuritygroup "$dispatch_securitygroups"
- elif [[ "$instance" == *"shipping"* ]];
+ elif [[ "$instancename" == *"shipping"* ]];
  then 
   updatesecuritygroup "$shipping_securitygroups"
-  elif [[ "$instance" == *"user"* ]];
+  elif [[ "$instancename" == *"user"* ]];
  then 
   updatesecuritygroup "$user_securitygroups"
 
-    elif [[ "$instance" == *"redis"* ]];
+    elif [[ "$instancename" == *"redis"* ]];
  then 
   updatesecuritygroup "$redis_securitygroups"
 
-    elif [[ "$instance" == *"cart"* ]];
+    elif [[ "$instancename" == *"cart"* ]];
  then 
   updatesecuritygroup "$cart_securitygroups"
 
-    elif [[ "$instance" == *"frontend"* ]];
+    elif [[ "$instancename" == *"frontend"* ]];
  then 
   updatesecuritygroup "$frontend_securitygroups"
 
-    elif [[ "$instance" == *"payment"* ]];
+    elif [[ "$instancename" == *"payment"* ]];
  then 
   updatesecuritygroup "$payment_securitygroups"
   else 
