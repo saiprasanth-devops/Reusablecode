@@ -14,7 +14,7 @@ instanceid_derive(){
  if [[ "$instancename" == *"mysql"* ]];
  then 
   instanceid=$(updatesecuritygroup "$mysql_securitygroups")
-#   echo "$instanceid"
+   echo "$instanceid"
     #updatesecuritygroup "$catalogue_securitygroups"
   elif [[ "$instancename" == *"mongodb"* ]];
  then 
