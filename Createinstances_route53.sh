@@ -13,7 +13,7 @@ instanceid_derive(){
     instancename=$1
  if [[ "$instancename" == *"mysql"* ]];
  then 
-  updatesecuritygroup "$mysql_securitygroups"
+  instanceid=$(updatesecuritygroup "$mysql_securitygroups")
   elif [[ "$instancename" == *"mongodb"* ]];
  then 
   updatesecuritygroup "$mongodb_securitygroups"
@@ -64,7 +64,7 @@ securitygroup=$1
     --query "Instances[0].InstanceId" \
     --output text)
 
-    echo "---------"$instanceid""
+    echo ""$instanceid""
 }
 
 privateip(){
@@ -109,6 +109,7 @@ for instancename in "$@"
 do
 echo "$instancename"
 instanceid=$(instanceid_derive "$instancename")
+echo "enters in the for loop"
 echo "$instanceid"
 if [ "${instancename}" == "frontend" ] || [ "$instancename" = "FRONTEND" ];
 then 
