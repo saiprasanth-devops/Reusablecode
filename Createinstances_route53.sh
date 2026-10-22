@@ -63,21 +63,23 @@ securitygroup=$1
      --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=roboshop-"${instancename}"}]" \
     --query "Instances[0].InstanceId" \
     --output text)
+
+    echo "---------"$instanceid""
 }
 
 privateip(){
-   instanceid=$1
+   instanceid1=$1
 privateip=$(aws ec2 describe-instances \
-    --instance-ids "$instanceid" \
+    --instance-ids "$instanceid1" \
     --query "Reservations[*].Instances[*].PrivateIpAddress" \
     --output text })
 
 }
 
 publicip(){
- instanceid=$1
+ instanceid2=$1
 publicip=$(aws ec2 describe-instances \
-    --instance-ids "$instanceid" \
+    --instance-ids "$instanceid2" \
     --query "Reservations[*].Instances[*].PublicIpAddress" \
     --output text })
 
