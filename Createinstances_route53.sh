@@ -18,23 +18,23 @@ instanceid_derive(){
     #updatesecuritygroup "$catalogue_securitygroups"
   elif [[ "$instancename" == *"mongodb"* ]];
  then 
- instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+ instanceid=$(updatesecuritygroup "$mongodb_securitygroups")
    echo "$instanceid"
      elif [[ "$instancename" == *"catalogue"* ]];
  then 
- instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+ instanceid=$(updatesecuritygroup "$catalogue_securitygroups")
    echo "$instanceid"
     elif [[ "$instancename" == *"rabbitmq"* ]];
  then 
- instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+ instanceid=$(updatesecuritygroup "$rabbitmq_securitygroups")
    echo "$instanceid"
      elif [[ "$instancename" == *"dispatch"* ]];
  then 
- instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+ instanceid=$(updatesecuritygroup "$dispatch_securitygroups")
    echo "$instanceid"
     elif [[ "$instancename" == *"shipping"* ]];
  then 
- instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+ instanceid=$(updatesecuritygroup "$shipping_securitygroups")
    echo "$instanceid"
      elif [[ "$instancename" == *"user"* ]];
  then 
@@ -42,19 +42,19 @@ instanceid_derive(){
    echo "$instanceid"
     elif [[ "$instancename" == *"redis"* ]];
  then 
- instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+ instanceid=$(updatesecuritygroup "$user_securitygroups")
    echo "$instanceid"
     elif [[ "$instancename" == *"cart"* ]];
  then 
- instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+ instanceid=$(updatesecuritygroup "$cart_securitygroups")
    echo "$instanceid"
     elif [[ "$instancename" == *"frontend"* ]];
  then 
- instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+ instanceid=$(updatesecuritygroup "$frontend_securitygroups")
    echo "$instanceid"
     elif [[ "$instancename" == *"payment"* ]];
  then 
- instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+ instanceid=$(updatesecuritygroup "$payment_securitygroups")
    echo "$instanceid" 
     else 
   echo "data is not found"
