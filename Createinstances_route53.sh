@@ -93,9 +93,8 @@ publicip=$(aws ec2 describe-instances \
 
 }
 update_route53(){
-
-   ipvalue=$1
-   route53=$2
+   route53=$1
+   ipvalue=$2
    aws route53 change-resource-record-sets \
     --hosted-zone-id "${hosted_zone_id}" \
     --change-batch '{
@@ -127,7 +126,7 @@ update_route53 "$route53_frontend" "$publicipaddress"
 else
 privateipaddress=$(privateip "$instanceid")
 echo "$privateipaddress"
-route53_all="$instancename"."$record_name"
+route53_all="$instancename"".""$record_name"
 update_route53 "$route53_all" "$privateipaddress"
 fi
 done
