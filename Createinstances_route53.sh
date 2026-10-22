@@ -22,7 +22,7 @@ instanceid_derive(){
   elif [[ "$instancename" == *"catalogue"* ]];
  then 
   updatesecuritygroup "$catalogue_securitygroups"
- elif [[ "$insinstancenametance" == *"rabbitmq"* ]];
+ elif [[ "$instancename" == *"rabbitmq"* ]];
  then 
   updatesecuritygroup "$rabbitmq_securitygroups"
   elif [[ "$instancename" == *"dispatch"* ]];
@@ -52,6 +52,7 @@ instanceid_derive(){
   updatesecuritygroup "$payment_securitygroups"
   else 
   echo "data is not found"
+  exit 1
   fi
 }
 
@@ -75,7 +76,7 @@ privateip(){
 privateip=$(aws ec2 describe-instances \
     --instance-ids "$instanceid1" \
     --query "Reservations[*].Instances[*].PrivateIpAddress" \
-    --output text })
+    --output text )
 
     echo "$privateip"
 
@@ -86,7 +87,7 @@ publicip(){
 publicip=$(aws ec2 describe-instances \
     --instance-ids "$instanceid2" \
     --query "Reservations[*].Instances[*].PublicIpAddress" \
-    --output text })
+    --output text )
 
     echo "$publicip"
 
