@@ -101,10 +101,10 @@ update_route53(){
       "Changes": [{
         "Action": "UPSERT",
         "ResourceRecordSet": {
-          "Name": ""${route53}"",
+          "Name": "'${route53}'",
           "Type": "A",
           "TTL": 1,
-          "ResourceRecords": [{"Value": ""${ipvalue}""}]
+          "ResourceRecords": [{"Value": "'${ipvalue}'"}]
         }
       }]
     }'
