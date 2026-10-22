@@ -126,7 +126,8 @@ echo ""$route53_frontend""
 update_route53 "$route53_frontend" "$publicipaddress"
 else
 privateipaddress=$(privateip "$instanceid")
-route53_all="$instanceid"."$record_name"
+echo "$privateipaddress"
+route53_all="$instancename"."$record_name"
 update_route53 "$route53_all" "$privateipaddress"
 fi
 done
