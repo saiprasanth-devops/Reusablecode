@@ -61,7 +61,7 @@ securitygroup=$1
     --image-id "$image_id" \
     --instance-type "$instance_type" \
     --security-groups "$securitygroup" \
-     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=roboshop-"${instance}"}]" \
+     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=roboshop-"${instancename}"}]" \
     --query "Instances[0].InstanceId" \
     --output text)
 }
