@@ -7,7 +7,7 @@ security_group_ids="sg-02a3f89bd2dcb78b1"
 hosted_zone_id="Z063293532TA5U290WZK9"
 record_name="godeploy.online"
 
-source ./Createinstances_route53.sh
+source ./Securitygroups_Allservices.sh
 
 
 for instancename in "$@"
