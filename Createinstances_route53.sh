@@ -14,6 +14,8 @@ instanceid_derive(){
  if [[ "$instancename" == *"mysql"* ]];
  then 
   instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+  echo "$instanceid"
+    #updatesecuritygroup "$catalogue_securitygroups"
   elif [[ "$instancename" == *"mongodb"* ]];
  then 
   updatesecuritygroup "$mongodb_securitygroups"
@@ -64,6 +66,7 @@ securitygroup=$1
     --query "Instances[0].InstanceId" \
     --output text)
 
+
     echo ""$instanceid""
 }
 
@@ -74,6 +77,8 @@ privateip=$(aws ec2 describe-instances \
     --query "Reservations[*].Instances[*].PrivateIpAddress" \
     --output text })
 
+    echo "$privateip"
+
 }
 
 publicip(){
@@ -83,6 +88,7 @@ publicip=$(aws ec2 describe-instances \
     --query "Reservations[*].Instances[*].PublicIpAddress" \
     --output text })
 
+    echo "$publicip"
 
 }
 update_route53(){
