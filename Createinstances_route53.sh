@@ -48,6 +48,8 @@ instanceid_derive(){
     elif [[ "$instance" == *"payment"* ]];
  then 
   updatesecuritygroup "$payment_securitygroups"
+  else 
+  echo "data is not found"
   fi
 }
 
