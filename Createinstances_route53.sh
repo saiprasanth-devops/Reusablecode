@@ -65,24 +65,6 @@ securitygroup=$1
     --output text)
 }
 
-for instancename in "$@"
-do
-echo "$instancename"
-instanceid=$(instanceid_derive "$instancename")
-echo "$instanceid"
-if [ "${instancename}" == "frontend" ] || [ "$instancename" = "FRONTEND" ];
-then 
-publicipaddress=$(publicip "$instanceid")
-route53_frontend="$record_name"
-echo ""$route53_frontend""
-update_route53 "$route53_frontend" "$publicipaddress"
-else
-privateipaddress=$(privateip "$instanceid")
-route53_all="$instanceid"."$record_name"
-update_route53 "$route53_all" "$privateipaddress"
-fi
-done
-
 privateip(){
    instanceid=$1
 privateip=$(aws ec2 describe-instances \
@@ -120,3 +102,22 @@ update_route53(){
     }'
 
 }
+
+for instancename in "$@"
+do
+echo "$instancename"
+instanceid=$(instanceid_derive "$instancename")
+echo "$instanceid"
+if [ "${instancename}" == "frontend" ] || [ "$instancename" = "FRONTEND" ];
+then 
+publicipaddress=$(publicip "$instanceid")
+route53_frontend="$record_name"
+echo ""$route53_frontend""
+update_route53 "$route53_frontend" "$publicipaddress"
+else
+privateipaddress=$(privateip "$instanceid")
+route53_all="$instanceid"."$record_name"
+update_route53 "$route53_all" "$privateipaddress"
+fi
+done
+
