@@ -247,7 +247,9 @@ echo "doesnot have the depenedency json"
 exit 1
 fi
 
-cd /home/ec2-user/cartservice2/project2
+filepath=$("realpath $0")
+echo "$filepath"
+cd /home/ec2-user/cartservice2/project2         
 cp catalogueservicefile /etc/systemd/system/catalogue.service            &>> "$logfullpath" 
 validate $? "npm should be installed"              &>> "$logfullpath"
 
