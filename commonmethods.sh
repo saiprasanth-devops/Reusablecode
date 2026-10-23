@@ -251,11 +251,14 @@ cd /home/ec2-user/cartservice2/project2
 cp catalogueservicefile /etc/systemd/system/catalogue.service            &>> "$logfullpath" 
 validate $? "npm should be installed"              &>> "$logfullpath"
 
-systemctl status catalogue  | tee -a "$logfullpath" 
-
-systemctl daemon-reload   | tee - a "$logfullpath" 
-systemctl enable catalogue    | tee - a "$logfullpath" 
-systemctl start catalogue    | tee - a "$logfullpath" 
+systemctl status catalogue   &>> "$logfullpath"
+validate $? "npm should be installed"
+systemctl daemon-reload    &>> "$logfullpath"
+validate $? "npm should be installed"
+systemctl enable catalogue     &>> "$logfullpath"
+validate $? "npm should be installed"
+systemctl start catalogue     &>> "$logfullpath"
+validate $? "npm should be installed"
 
 }
 
@@ -271,13 +274,13 @@ validate $? "download the folder into the /tmp folder"
 
 cd /app       &>> "$logfullpath" 
 validate $? "go to app folder"
-rm -rf /app   
+rm -rf /app         &>> "$logfullpath" 
 validate $? "remove the files in the /app folder"
 mkdir -p /app
 validate $? "create the app folder in the /"
-cd /app
-unzip /tmp/catalogue.zip
-validate $? "and unzip it"
+cd /app 
+unzip /tmp/catalogue.zip      &>> "$logfullpath" 
+validate $? "and unzip it"    
 }
 
 
