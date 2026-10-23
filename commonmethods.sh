@@ -249,7 +249,7 @@ fi
 
 filepath=$(realpath $0)
 echo "$filepath"
-cd /home/ec2-user/cartservice2/project2         
+cd /home/ec2-user/reusaablemethod/         
 cp catalogueservicefile /etc/systemd/system/catalogue.service            &>> "$logfullpath" 
 validate $? "npm should be installed"              &>> "$logfullpath"
 
