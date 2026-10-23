@@ -81,7 +81,7 @@ validate $? "systemctl enable redis"
 systemctl start redis    &>> "$logfullpath" 
 validate $? "systemctl start redis"
 systemctl status redis 
-validate $? "status check for the mongod"        &>> "$logfullpath"
+validate $? "status check for the redis"        &>> "$logfullpath"
 
 }
 
