@@ -247,7 +247,7 @@ echo "doesnot have the depenedency json"
 exit 1
 fi
 
-filepath=$("realpath $0")
+filepath=$(realpath $0)
 echo "$filepath"
 cd /home/ec2-user/cartservice2/project2         
 cp catalogueservicefile /etc/systemd/system/catalogue.service            &>> "$logfullpath" 
