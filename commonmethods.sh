@@ -252,13 +252,13 @@ cp catalogueservicefile /etc/systemd/system/catalogue.service            &>> "$l
 validate $? "npm should be installed"              &>> "$logfullpath"
 
 systemctl status catalogue   &>> "$logfullpath"
-validate $? "npm should be installed"
+validate $? "systemctl status catalogue"
 systemctl reload catalogue    &>> "$logfullpath"
-validate $? "npm should be installed"
+validate $? "systemctl reload catalogue"
 systemctl enable catalogue     &>> "$logfullpath"
-validate $? "npm should be installed"
+validate $? "systemctl enable catalogue"
 systemctl start catalogue     &>> "$logfullpath"
-validate $? "npm should be installed"
+validate $? "systemctl start catalogue"
 
 }
 
