@@ -253,7 +253,7 @@ validate $? "npm should be installed"              &>> "$logfullpath"
 
 systemctl status catalogue   &>> "$logfullpath"
 validate $? "npm should be installed"
-systemctl daemon-reload    &>> "$logfullpath"
+systemctl reload catalogue    &>> "$logfullpath"
 validate $? "npm should be installed"
 systemctl enable catalogue     &>> "$logfullpath"
 validate $? "npm should be installed"
