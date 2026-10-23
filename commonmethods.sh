@@ -112,6 +112,8 @@ exit 1
 fi
 systemctl restart mysqld
 validate $? "systemctl restart the  mysqld"
+systemctl status mysqld
+validate $? "systemctl status the  mysqld"
 }
 
 
