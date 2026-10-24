@@ -25,7 +25,7 @@ validate $? "alternatives --set java"
 
 echo "${javapath}-------------------"        &>> "$logfullpath" 
 
-echo "export JAVA_HOME="${javapath}""   > /etc/profile.d/java.sh    &>> "$logfullpath" 
+echo "export JAVA_HOME="${javapath}""   > /etc/profile.d/java.sh    
 validate $? "export JAVA_HOME="${javapath}""
 
 source /etc/profile.d/java.sh     &>> "$logfullpath" 
@@ -47,7 +47,7 @@ cd /app
 validate $? "cd /app"
 
 mvn clean package
-validate $? "cd /app"
+validate $? "mvn clean package"
 
 mv target/shipping.jar shipping.jar
 validate $? "mv target/shipping.jar shipping.jar"
