@@ -24,8 +24,9 @@ alternatives --set java "${javapath}"      &>> "$logfullpath"
 validate $? "alternatives --set java"
 
 echo "${javapath}-------------------"        &>> "$logfullpath" 
+echo "export JAVA_HOME=$(dirname $(dirname $(readlink -f /usr/bin/java)))" > /etc/profile.d/java.sh
 
-echo "export JAVA_HOME=""${javapath}"""   > /etc/profile.d/java.sh    
+#echo "export JAVA_HOME=""${javapath}"""   > /etc/profile.d/java.sh    
 validate $? "export JAVA_HOME="${javapath}""
 
 source /etc/profile.d/java.sh     &>> "$logfullpath" 
