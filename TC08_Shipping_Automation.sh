@@ -6,13 +6,6 @@ inputservicefilename=shippingservicefile
 source ./Securitygroups_Allservices.sh
 source ./commonmethods.sh
 
-startingstep
-mavensetup
-
-
-
-
-
 mavensetup(){
 
 dnf module disable maven -y   &>> "$logfullpath" 
@@ -90,29 +83,16 @@ systemctl status "${service}"              &>> "$logfullpath"
 validate $? "systemctl status "${service}""
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+startingstep
+mavensetup  
+
+
+
+
+
+
 
 
 
