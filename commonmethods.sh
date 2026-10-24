@@ -237,14 +237,14 @@ cd /home/ec2-user/Reusablecode/
 cp "${servicefilename}" /etc/systemd/system/catalogue.service            &>> "$logfullpath" 
 validate $? "npm should be installed"              &>> "$logfullpath"
 
-systemctl status catalogue   &>> "$logfullpath"
-validate $? "systemctl status catalogue"
-systemctl reload catalogue    &>> "$logfullpath"
-validate $? "systemctl reload catalogue"
-systemctl enable catalogue     &>> "$logfullpath"
-validate $? "systemctl enable catalogue"
-systemctl start catalogue     &>> "$logfullpath"
-validate $? "systemctl start catalogue"
+systemctl status "${service}"   &>> "$logfullpath"
+validate $? "systemctl status "${service}""
+systemctl reload "${service}"    &>> "$logfullpath"
+validate $? "systemctl reload "${service}""
+systemctl enable "${service}"     &>> "$logfullpath"
+validate $? "systemctl enable "${service}""
+systemctl start "${service}"     &>> "$logfullpath"
+validate $? "systemctl start "${service}""
 
 }
 
