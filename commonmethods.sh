@@ -188,6 +188,7 @@ modulevalidate(){
 
 nodejs_setup(){
     servicename=$1
+    servicefilename=$2
 dnf list nodejs -y    &>> "$logfullpath" 
 modulevalidate $? "dnf list nodejs -y"
 
@@ -214,23 +215,6 @@ useradd --system --home /app --shell /sbin/nologin --comment "roboshop system us
 else
 echo "user is already present and skipping him to create"
 fi
-#validate $? "system user has been created"
-
-# mkdir -p /app
-# validate $? "create the app folder in the /"
-
-# curl -L -o /tmp/catalogue.zip https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/catalogue-v4.zip
-# validate $? "download the folder into the /tmp folder"
-
-# cd /app       &>> "$logfullpath" 
-# validate $? "go to app folder"
-# rm -rf /app
-# validate $? "remove the files in the /app folder"
-# mkdir -p /app
-# validate $? "create the app folder in the /"
-# cd /app
-# unzip /tmp/catalogue.zip
-# validate $? "and unzip it"
 get_unziprealcode "${servicename}"
 
 npm install               &>> "$logfullpath" 
@@ -250,7 +234,7 @@ fi
 filepath=$(realpath $0)
 echo "$filepath"
 cd /home/ec2-user/Reusablecode/         
-cp catalogueservicefile /etc/systemd/system/catalogue.service            &>> "$logfullpath" 
+cp "${servicefilename}" /etc/systemd/system/catalogue.service            &>> "$logfullpath" 
 validate $? "npm should be installed"              &>> "$logfullpath"
 
 systemctl status catalogue   &>> "$logfullpath"
