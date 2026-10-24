@@ -23,11 +23,13 @@ validate $? "dnf install maven java-25-openjdk-devel -y"
 alternatives --set java "${javapath}"      &>> "$logfullpath" 
 validate $? "alternatives --set java"
 
-echo "export JAVA_HOME="${javapath}""  > /etc/profile.d/java.sh    &>> "$logfullpath" 
-validate $? "alternatives --set java"
+echo "${javapath}-------------------"        &>> "$logfullpath" 
+
+echo "export JAVA_HOME="${javapath}""   > /etc/profile.d/java.sh    &>> "$logfullpath" 
+validate $? "export JAVA_HOME="${javapath}""
 
 source /etc/profile.d/java.sh     &>> "$logfullpath" 
-validate $? "alternatives --set java"
+validate $? "source /etc/profile.d/java.sh"
 
 echo "$JAVA_HOME"   &>> "$logfullpath" 
 
