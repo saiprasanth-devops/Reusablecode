@@ -255,7 +255,7 @@ get_unziprealcode(){
     mkdir -p /app
 validate $? "create the app folder in the /"
 
-curl -L -o /tmp/catalogue.zip https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/"${codeservicepath}"-v4.zip
+curl -L -o /tmp/"${codeservicepath}".zip https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/"${codeservicepath}"-v4.zip
 validate $? "download the folder into the /tmp folder"
 
 cd /app       &>> "$logfullpath" 
@@ -265,7 +265,7 @@ validate $? "remove the files in the /app folder"
 mkdir -p /app
 validate $? "create the app folder in the /"
 cd /app 
-unzip /tmp/catalogue.zip      &>> "$logfullpath" 
+unzip /tmp/"${codeservicepath}".zip      &>> "$logfullpath" 
 validate $? "and unzip it"    
 }
 
