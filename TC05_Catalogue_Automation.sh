@@ -22,7 +22,7 @@ validate $? "dnf install mongodb-mongosh -y"        &>> "$logfullpath"
 # validate $? "connect the host"        &>> "$logfullpath" 
 
 count=$(mongosh --host mongodb.godeploy.online --quiet --eval 'db.getSiblingDB("catalogue").products.countDocuments()')
-echo "document count------------> "${count}"
+echo "document count------------> "${count}""
 validate $? "load the data into mongodb"        &>> "$logfullpath" 
 
 
