@@ -6,7 +6,7 @@ configfilefrontend=frontendservicefile
 source ./commonmethods.sh
 
 
-unzip(){
+unzip_code(){
  
 rm  /tmp/"${service}".zip
 removestatus=$(echo "$?")
@@ -45,7 +45,7 @@ validate $? "dnf install nginx -y"
 rm -rf /usr/share/nginx/html/*                   
 validate $? "dnf install nginx -y"
 
-unzip
+unzip_code
 
 cp "${configfilefrontend}" /etc/nginx/default.d/roboshop.conf             
 validate $? "cp "${configfilefrontend}" /etc/nginx/default.d/roboshop.conf"
