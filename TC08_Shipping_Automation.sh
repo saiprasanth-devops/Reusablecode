@@ -67,7 +67,7 @@ fi
 
 
 mysql -h "mysql.godeploy.online" -uroot -pRoboShop@1 < /app/db/app-user.sql   &>> "$logfullpath"
-validate $? "user is craeted "
+validate $? "user is created "
 
 path=$(dirname "$(find / -name 'shippingservicefile' 2>/dev/null | head -n 1)")
 echo "path ----------->"${path}""
