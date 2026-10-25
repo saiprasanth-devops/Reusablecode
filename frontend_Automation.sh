@@ -8,10 +8,15 @@ source ./commonmethods.sh
 unzip(){
  
 #rm  /tmp/"${service}".zip
-curl -L -o /tmp/"${service}".zip https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/"${service}"-v4.zip
+# curl -L -o /tmp/"${service}".zip https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/"${service}"-v4.zip
 
+# cd /usr/share/nginx/html
+# unzip /tmp/"${service}".zip
+
+
+curl -L -o /tmp/frontend.zip https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/frontend-v4.zip
 cd /usr/share/nginx/html
-unzip /tmp/"${service}".zip
+unzip /tmp/frontend.zip
 
 
 }
