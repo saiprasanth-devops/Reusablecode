@@ -48,7 +48,7 @@ validate $? "dnf install nginx -y"
 unzip_code
 relapath=$(realpath "$0")
 echo "----------->"${relapath}""
-path=$(dirname "$(realpath "$0")")
+path=$(dirname "$(find / -name 'frontend.sh' 2>/dev/null | head -n 1)")
 echo "path ----------->"${path}""
 
 cp /home/ec2-user/Reusablecode/"${configfilefrontend}" /etc/nginx/default.d/roboshop.conf             
