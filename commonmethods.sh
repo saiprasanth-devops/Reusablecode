@@ -74,8 +74,10 @@ dnf module enable redis:7 -y   &>> "$logfullpath"
 validate $? "module enable redis:7 -y"
 dnf install redis -y           &>> "$logfullpath" 
 validate $? "install redis -y"
-sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf    
+sed -i 's/127.0.0.1/0.0.0.0/' /etc/redis.conf    
 validate $? "change the port from 127 to 0.0.0.0"        &>> "$logfullpath" 
+sed -i 's/protected-mode yes/protected-mode no/' /etc/redis.conf    
+validate $? "sed -i 's/protected-mode yes/protected-mode no/' /etc/redis.conf"        &>> "$logfullpath" 
 systemctl enable redis    &>> "$logfullpath" 
 validate $? "systemctl enable redis"
 systemctl start redis    &>> "$logfullpath" 

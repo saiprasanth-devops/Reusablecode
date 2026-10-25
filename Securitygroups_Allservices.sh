@@ -12,4 +12,4 @@ cart_securitygroups="roboshop-cart"
 frontend_securitygroups="roboshop-frontend"
 payment_securitygroups="roboshop-payment"
 mavenversion=3.9
-javapath="/usr/lib/jvm/java-25-openjdk/bin/java"
+javapath="/usr/lib/jvm/java-25-openjdk"
