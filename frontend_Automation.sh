@@ -46,12 +46,11 @@ rm -rf /usr/share/nginx/html/*
 validate $? "dnf install nginx -y"
 
 unzip_code
-relapath=$(realpath "$0")
-echo "----------->"${relapath}""
-path=$(dirname "$(find / -name 'frontend_Automation.sh' 2>/dev/null | head -n 1)")
+
+path=$(dirname "$(find / -name '"{$0}"' 2>/dev/null | head -n 1)")
 echo "path ----------->"${path}""
 
-cp /home/ec2-user/Reusablecode/"${configfilefrontend}" /etc/nginx/default.d/roboshop.conf             
+cp "${path}""/""${configfilefrontend}" /etc/nginx/default.d/roboshop.conf             
 validate $? "cp "${configfilefrontend}" /etc/nginx/default.d/roboshop.conf"
 
 systemctl restart nginx          &>> "$logfullpath"
