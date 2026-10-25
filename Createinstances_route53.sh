@@ -7,6 +7,7 @@ security_group_ids="sg-02a3f89bd2dcb78b1"
 hosted_zone_id="Z063293532TA5U290WZK9"
 record_name="godeploy.online"
 
+
 source ./Securitygroups_Allservices.sh
 
 instanceid_derive(){
@@ -38,11 +39,11 @@ instanceid_derive(){
    echo "$instanceid"
      elif [[ "$instancename" == *"user"* ]];
  then 
- instanceid=$(updatesecuritygroup "$mysql_securitygroups")
+ instanceid=$(updatesecuritygroup "$user_securitygroups")
    echo "$instanceid"
     elif [[ "$instancename" == *"redis"* ]];
  then 
- instanceid=$(updatesecuritygroup "$user_securitygroups")
+ instanceid=$(updatesecuritygroup "$redis_securitygroups")
    echo "$instanceid"
     elif [[ "$instancename" == *"cart"* ]];
  then 
