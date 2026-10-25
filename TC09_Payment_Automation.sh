@@ -24,9 +24,9 @@ modulevalidate $? "python3.14 --version"
 roboshopid=$(id roboshop)
 if [ "$?" -eq 0 ];
 then
-useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop    &>> "$logfullpath" 
-else
 echo "user is already present and skipping him to create"
+else
+useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop    &>> "$logfullpath" 
 fi
 get_unziprealcode "${service}"
 

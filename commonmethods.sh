@@ -217,9 +217,7 @@ if [ "$?" -eq 0 ];
 then
 echo "user is already present and skipping him to create"
 else
-echo "user is already present and skipping him to create"
 useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop    &>> "$logfullpath" 
-
 fi
 get_unziprealcode "${servicename}"
 
