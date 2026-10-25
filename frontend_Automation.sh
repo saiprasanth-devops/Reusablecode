@@ -53,4 +53,4 @@ unzip /tmp/"${service}".zip
 }
 
 startingstep
-frontend
+frontendsetup
