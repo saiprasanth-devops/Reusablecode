@@ -69,7 +69,9 @@ fi
 mysql -h "mysql.godeploy.online" -uroot -pRoboShop@1 < /app/db/app-user.sql   &>> "$logfullpath"
 validate $? "user is craeted "
 
-cp "${inputservicefilename}" /etc/systemd/system/"${service}".service
+path=$(dirname "$(find / -name 'shippingservicefile' 2>/dev/null | head -n 1)")
+echo "path ----------->"${path}""
+cp "${path}""/""${inputservicefilename}" /etc/systemd/system/"${service}".service
 validate $? "copied filed"
 
 #systemctl daemon-reload
