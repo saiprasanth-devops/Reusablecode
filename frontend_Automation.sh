@@ -46,7 +46,8 @@ rm -rf /usr/share/nginx/html/*
 validate $? "dnf install nginx -y"
 
 unzip_code
-
+relapath=$(realpath "$0")
+echo "----------->"${relapath}""
 cp "${configfilefrontend}" /etc/nginx/default.d/roboshop.conf             
 validate $? "cp "${configfilefrontend}" /etc/nginx/default.d/roboshop.conf"
 
