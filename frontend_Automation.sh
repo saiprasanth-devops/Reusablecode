@@ -5,6 +5,16 @@ configfilefrontend=frontendservicefile
 source ./commonmethods.sh
 
 
+unzip(){
+ 
+#rm  /tmp/"${service}".zip
+curl -L -o /tmp/"${service}".zip https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/"${service}"-v4.zip
+
+cd /usr/share/nginx/html
+unzip /tmp/"${service}".zip
+
+
+}
 frontendsetup(){
 
 dnf list nginx -y           &>> "$logfullpath"
@@ -28,7 +38,7 @@ validate $? "dnf install nginx -y"
 unzip
 
 cp "${configfilefrontend}" /etc/nginx/default.d/roboshop.conf             
-validate $? "dnf install nginx -y"
+validate $? "cp "${configfilefrontend}" /etc/nginx/default.d/roboshop.conf"
 
 systemctl restart nginx          &>> "$logfullpath"
 validate $? "systemctl restart nginx"
@@ -41,16 +51,6 @@ validate $? "systemctl status nginx"
 
 }
 
-unzip(){
- 
-rm  /tmp/"${service}".zip
- curl -L -o /tmp/"${service}".zip https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/"${service}"-v4.zip
-
-cd /usr/share/nginx/html
-unzip /tmp/"${service}".zip
-
-
-}
 
 startingstep
 frontendsetup
