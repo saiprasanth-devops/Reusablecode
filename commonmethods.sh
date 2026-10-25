@@ -215,9 +215,11 @@ validate $? "dnf install nodejs -y"
 roboshopid=$(id roboshop)
 if [ "$?" -eq 0 ];
 then
-useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop    &>> "$logfullpath" 
+echo "user is already present and skipping him to create"
 else
 echo "user is already present and skipping him to create"
+useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop    &>> "$logfullpath" 
+
 fi
 get_unziprealcode "${servicename}"
 
