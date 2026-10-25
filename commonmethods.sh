@@ -79,7 +79,7 @@ validate $? "change the port from 127 to 0.0.0.0"        &>> "$logfullpath"
 sed -i 's/protected-mode yes/protected-mode no/' /etc/redis/redis.conf    
 validate $? "sed -i 's/protected-mode yes/protected-mode no/' /etc/redis/redis.conf"        &>> "$logfullpath" 
 systemctl restart redis
-validate $? "systemctl reload redis"        &>> "$logfullpath" 
+validate $? "systemctl restart redis"        &>> "$logfullpath" 
 systemctl enable redis    &>> "$logfullpath" 
 validate $? "systemctl enable redis"
 systemctl start redis    &>> "$logfullpath" 
