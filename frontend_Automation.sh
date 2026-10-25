@@ -4,7 +4,6 @@ service=frontend
 configfilefrontend=frontendservicefile
 source ./commonmethods.sh
 
-startingstep
 
 frontendsetup(){
 
@@ -52,3 +51,6 @@ unzip /tmp/"${service}".zip
 
 
 }
+
+startingstep
+frontend
