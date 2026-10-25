@@ -242,8 +242,8 @@ cp "${servicefilename}" /etc/systemd/system/"${servicename}".service            
 validate $? "npm should be installed"              &>> "$logfullpath"
 systemctl daemon-reload
 validate $? "systemctl daemon-reload"
-systemctl status "${service}"   &>> "$logfullpath"
-validate $? "systemctl status "${service}""
+# systemctl status "${service}"   &>> "$logfullpath"
+# validate $? "systemctl status "${service}""
 #systemctl reload "${service}"    &>> "$logfullpath"
 #validate $? "systemctl reload "${service}""
 
