@@ -48,7 +48,7 @@ validate $? "dnf install nginx -y"
 unzip_code
 relapath=$(realpath "$0")
 echo "----------->"${relapath}""
-cp "${configfilefrontend}" /etc/nginx/default.d/roboshop.conf             
+cp /home/ec2-user/Reusablecode/"${configfilefrontend}" /etc/nginx/default.d/roboshop.conf             
 validate $? "cp "${configfilefrontend}" /etc/nginx/default.d/roboshop.conf"
 
 systemctl restart nginx          &>> "$logfullpath"
