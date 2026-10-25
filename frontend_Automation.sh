@@ -47,7 +47,7 @@ validate $? "dnf install nginx -y"
 
 unzip_code
 
-path=$(dirname "$(find / -name '"frontend_Automation.sh"' 2>/dev/null | head -n 1)")
+path=$(dirname "$(find / -name 'frontend_Automation.sh' 2>/dev/null | head -n 1)")
 echo "path ----------->"${path}""
 
 cp "${path}""/""${configfilefrontend}" /etc/nginx/default.d/roboshop.conf             
