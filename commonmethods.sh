@@ -238,7 +238,7 @@ fi
 filepath=$(realpath $0)
 echo "$filepath"
 cd /home/ec2-user/Reusablecode/         
-cp "${servicefilename}" /etc/systemd/system/catalogue.service            &>> "$logfullpath" 
+cp "${servicefilename}" /etc/systemd/system/"${servicename}".service            &>> "$logfullpath" 
 validate $? "npm should be installed"              &>> "$logfullpath"
 systemctl daemon-reload
 validate $? "systemctl daemon-reload"
