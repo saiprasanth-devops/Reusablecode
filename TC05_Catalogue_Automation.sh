@@ -18,10 +18,11 @@ validate $? "repo file copay"        &>> "$logfullpath"
 dnf install mongodb-mongosh -y
 validate $? "dnf install mongodb-mongosh -y"        &>> "$logfullpath" 
 
-mongosh --host mongodb.godeploy.online </app/db/master-data.js
-validate $? "connect the host"        &>> "$logfullpath" 
+# mongosh --host mongodb.godeploy.online </app/db/master-data.js
+# validate $? "connect the host"        &>> "$logfullpath" 
 
-mongosh --host mongodb.godeploy.online --quiet --eval 'db.getSiblingDB("catalogue").products.countDocuments()'
+count=$(mongosh --host mongodb.godeploy.online --quiet --eval 'db.getSiblingDB("catalogue").products.countDocuments()')
+echo "document count------------> "${count}"
 validate $? "load the data into mongodb"        &>> "$logfullpath" 
 
 
