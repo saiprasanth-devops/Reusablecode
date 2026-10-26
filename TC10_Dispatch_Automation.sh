@@ -1,5 +1,5 @@
 #!/bin/bash
-service=payment
+service=dispatch
 inputservicefilename=dispatchservicefile
 
 source ./Securitygroups_Allservices.sh
