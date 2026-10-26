@@ -44,7 +44,7 @@ validate $? "buid diapatch"
 systemctl status dispatch
 validate $? "systemctl status dispatch"
 
-journaltctl -u dispatch -f    | tee -a 
+journalctl -u dispatch -f    | tee -a 
 
 
 
