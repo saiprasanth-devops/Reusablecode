@@ -8,8 +8,6 @@ source ./Securitygroups_Allservices.sh
 source ./commonmethods.sh
 
 startingstep
-pythonsetup 
-
 pythonsetup(){
 
 dnf module disable python -y   &>> "$logfullpath" 
@@ -59,3 +57,5 @@ validate $? "systemctl status payment"
 
 
 }
+pythonsetup 
+
