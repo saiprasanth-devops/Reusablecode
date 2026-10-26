@@ -49,3 +49,5 @@ journaltctl -u dispatch -f    | tee -a
 
 
 }
+
+setup_dispatch
