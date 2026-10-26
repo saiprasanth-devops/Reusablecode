@@ -37,6 +37,11 @@ validate $? "download the folder into the /tmp folder"
 /app/.venv/bin/pip install -r requirements.txt
 validate $? "download the folder into the /tmp folder"
 
+path=$(dirname "$(find / -name 'paymentservicefile' 2>/dev/null | head -n 1)")
+echo "path ----------->"${path}""
+cp "${path}""/""${inputservicefilename}" /etc/systemd/system/"${service}".service
+validate $? "copied filed"
+
 systemctl daemon-reload
 validate $? "systemctl daemon-reload"
 
