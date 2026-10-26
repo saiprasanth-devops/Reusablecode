@@ -1,0 +1,21 @@
+steps for installing java:
+1.install the maven (dnf list , dnf module list)
+2.when we install maven automatically java will also be installed ..so give me the version path we need to have for java
+3.give the /etc/profile.d/java.sh --> export JAVA_HOME=path of the java version
+4.source /etc/profile.d/java.sh
+5.if echo $JAVA_HOME ----> you should see the java path
+6.check for mvn version and java version
+7.create the /app
+8.create the system variable by using useradd --system --home /app --shell /sbin/nologin --comments "add comments" roboshop
+9.using curl -o /tmp/roboshop.zip http://git.xtusiisis//roboshop.zip
+10.go to /app
+11.unzip /tmp/roboshop.zip
+12.make sure we have the pom.xml and all the file extracted
+13.now run mvn clean package ----> this will download the dependecies, compile it,run the tests, build success and jar is generated
+14.target is the folder where the jar file will be stored and that path will be given in service file
+15.copy the service file and make sure we are giving the connections of the backend file
+16.systemctl daemon-reload   ---> reload the systemd
+17.systemctl restart servicename
+18.systemctl enable servicename
+19.systemctl start servicename
+20.check the health ( http://localhost:8080/health) ,telnet, netstat -lntp , ps -ef | grep service name  

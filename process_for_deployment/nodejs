@@ -1,0 +1,11 @@
+steps for installing python:
+
+1.dnf install the nodejs, module list
+2.dnf module enable nodejs:24 -y
+3.create the /app and download the code in /tmp and unzip the download code in /app
+4.make sure we have the package.json that
+5.go to the cd /app and use npm install
+6.all the dependencies will be downloaded in the same folder node_module
+
+netstat -lntp ---> it will shouw the node since the programming language is nodejs
+ps -ef | grep node   ---> this will show the execution start file

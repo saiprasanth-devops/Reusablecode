@@ -1,0 +1,26 @@
+steps for installing python:
+
+1.install the python using the dnf list , dnf install , dnf module list python
+2.check for the python version
+3.create /app
+4.create the system variable to run the applicable since we need to have 1 system variable
+useradd --system --home /app --shell /sbin/nologin --comments "comments" roboshop
+5.download the package using the curl 
+curl -o /tmp/roboshop.zip http://github.jkdjdjj/roboshop.zip
+6.go to app folder and unzip there
+cd /app
+unzip /tmp/roboshop.zip
+7./app should able to see the code base
+8.now create the virtual environment and then we need to use the pip install there
+python3.14 -m venv /app/.venv
+9.once the .venv is created go to the bin and then use the pip install 
+/app/.venv/bin/pip install -r requirment.txt
+10.the package will be seen with in the /.venv 
+11.go to the /etc/systemd/system and the create the service file
+12.in the service file give the backend connection
+13.reload the systemd ---> systemctl daemon-reload
+14.systemctl restart servicename
+15.systemctl enable servicename
+16.systemctl start servicename
+17.check the status of the servicesname
+18.check health http:localhost:8080/health , netstat -lntp , telnet domainname 8080 , ps -ef | grep servicename ,logs if needed 
