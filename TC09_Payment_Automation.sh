@@ -28,13 +28,13 @@ useradd --system --home /app --shell /sbin/nologin --comment "roboshop system us
 fi
 get_unziprealcode "${service}"
 
-cd /app
+cd /app                 &>> "$logfullpath" 
 validate $? "download the folder into the /tmp folder"
 
-python3.14 -m venv /app/.venv
+python3.14 -m venv /app/.venv               &>> "$logfullpath" 
 validate $? "download the folder into the /tmp folder"
 
-/app/.venv/bin/pip install -r requirements.txt
+/app/.venv/bin/pip install -r requirements.txt              &>> "$logfullpath" 
 validate $? "download the folder into the /tmp folder"
 
 path=$(dirname "$(find / -name 'paymentservicefile' 2>/dev/null | head -n 1)")
@@ -42,19 +42,19 @@ echo "path ----------->"${path}""
 cp "${path}""/""${inputservicefilename}" /etc/systemd/system/"${service}".service
 validate $? "copied filed"
 
-systemctl daemon-reload
+systemctl daemon-reload                &>> "$logfullpath" 
 validate $? "systemctl daemon-reload"
 
-systemctl restart payment
+systemctl restart payment              &>> "$logfullpath" 
 validate $? "systemctl restart payment"
 
-systemctl enable  payment
+systemctl enable  payment                    &>> "$logfullpath" 
 validate $? "systemctl enable  payment"
 
-systemctl start payment
+systemctl start payment         &>> "$logfullpath" 
 validate $? "systemctl start payment"
 
-systemctl status payment
+systemctl status payment             &>> "$logfullpath" 
 validate $? "systemctl status payment"
 
 
