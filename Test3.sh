@@ -28,7 +28,7 @@ echo -e "${2}...${G}Success{N}" | tee -a $logs_file
 fi
 }
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+cp mongofile /etc/yum.repos.d/mongo.repo
 validating $? "Adding mongo repo"
 
 dnf install mongodb-org -y &>> $logs_file
