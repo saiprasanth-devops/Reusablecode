@@ -29,7 +29,7 @@ fi
 }
 
 cp mongofile /etc/yum.repos.d/mongo.repo
-validating $? "Adding mongo repo"
+validate $? "Adding mongo repo"
 
 dnf install mongodb-org -y &>> $logs_file
 validate $? "Install MongoDB"
